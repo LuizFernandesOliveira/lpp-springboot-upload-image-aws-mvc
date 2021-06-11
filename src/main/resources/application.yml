@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+  datasource:
+    username: postgres
+    password: 291197
+    url: jdbc:postgresql://localhost:5432/upload_image
+server:
+  port: 3333
+
