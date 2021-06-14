@@ -1,0 +1,23 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+</head>
+<body>
+
+<div class="profile-container">
+
+  <div>
+    <h1 th:text="${user.name}"></h1>
+    <span>
+      <a href="/login">Sair</a>
+    </span>
+  </div>
+
+</div>
+
+</body>
+</html>
