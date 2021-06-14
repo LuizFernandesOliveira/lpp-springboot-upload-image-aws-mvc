@@ -5,9 +5,9 @@ import com.upload_image.repositories.UserRepository;
 import com.upload_image.utils.Credentials;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @AllArgsConstructor
@@ -20,17 +20,20 @@ public class LoginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(Credentials credentials, Model model) {
+    public ModelAndView login(Credentials credentials) {
+        ModelAndView mv;
         User user = userRepository.findByEmailAndPassword(
                 credentials.getEmail(),
                 credentials.getPassword());
 
         if (user != null) {
-            model.addAttribute("user", user);
-            return "redirect:/profile";
+            mv = new ModelAndView("profile");
+            mv.addObject("user", user);
         } else {
-            return "redirect:/login";
+            mv = new ModelAndView("login");
         }
+
+        return mv;
     }
 
 }
