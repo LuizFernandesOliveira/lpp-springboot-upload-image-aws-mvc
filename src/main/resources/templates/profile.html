@@ -16,9 +16,16 @@
       <a href="/login">Sair</a>
     </span>
   </header>
-  <div class="galery-content">
-    <div class="image">
-      <img src="" alt="image">
+  <div class="content">
+    <div class="painel">
+      <button>
+        Adicionar imagem
+      </button>
+    </div>
+    <div class="galery" th:each="image: ${images}">
+      <div class="image">
+        <img th:src="${image.url}" alt="image">
+      </div>
     </div>
   </div>
 
